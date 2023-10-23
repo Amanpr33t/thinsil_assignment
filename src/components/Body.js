@@ -108,7 +108,7 @@ function Body() {
                     <p>No products found.</p>
                 </div>}
 
-            {!error && <div className="w-full fixed top-12 pt-9 pb-4 flex flex-row justify-between items-center bg-white">
+            {!error && <div className="w-full fixed top-12 pt-9 pb-4 flex flex-row justify-between items-center bg-white z-10">
                 {/*This select tag is used to show a dropdown for categories */}
                 <select defaultValue='category' className="cursor-pointer border-2 border-gray-500 rounded-md text-lg font-medium bg-white ml-4" name="category" id="category" value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                     <option disabled value='category'>Category</option>
