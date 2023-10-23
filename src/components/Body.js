@@ -39,6 +39,7 @@ function Body() {
                 throw new Error('Some error occured')
             }
             const data = await response.json()
+            console.log(data)
             if (data.status === 'ok') {
                 setCartItems(data.cartItems)
             }
@@ -75,6 +76,7 @@ function Body() {
 
     return (
         <Fragment>
+            {email&&<>
             {/*The code below is used to show an alert modal */}
             {!error && !loading && alertModal && <AlertModal message={'Some error occured. Try again.'} type={'warning'} alertModalRemover={() => setAlertModal(false)} />}
 
@@ -132,6 +134,7 @@ function Body() {
             {!error && !loading && <div className={`mt-32 pt-2 z-10 w-full pb-10 flex flex-wrap flex-row gap-10 place-content-center ${alertModal ? 'blur' : ''}`}>
                 {products && products.length && products.map(product => <ProductCard product={product} cartItems={cartItems} fetchCartItems={fetchCartItems} alertModalSetter={() => setAlertModal(true)} key={product.id} />)}
             </div>}
+            </>}
         </Fragment>
     )
 }
